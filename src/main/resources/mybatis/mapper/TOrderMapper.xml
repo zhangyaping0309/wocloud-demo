@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wocloud.demo.mapper.TOrderMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="cn.wocloud.demo.model.TOrder">
+        <result column="order_id" property="orderId" jdbcType="INTEGER"/>
+        <result column="en_code" property="enCode" jdbcType="VARCHAR"/>
+        <result column="order_time" property="orderTime" jdbcType="TIMESTAMP"/>
+        <result column="pro_code" property="proCode" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="fee_code" property="feeCode" jdbcType="VARCHAR"/>
+        <result column="fee_name" property="feeName" jdbcType="VARCHAR"/>
+        <result column="unit_price" property="unitPrice" jdbcType="VARCHAR"/>
+        <result column="order_fee" property="orderFee" jdbcType="VARCHAR"/>
+        <result column="fee_period" property="feePeriod" jdbcType="VARCHAR"/>
+        <result column="validity" property="validity" jdbcType="VARCHAR"/>
+        <result column="order_note" property="orderNote" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        order_id,
+        en_code,
+        order_time,
+        pro_code,
+        order_num,
+        fee_code,
+        fee_name,
+        unit_price,
+        order_fee,
+        fee_period,
+        validity,
+        order_note
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="tOrder.orderId">
+        INSERT INTO t_order (
+            order_id,
+            en_code,
+            order_time,
+            pro_code,
+            order_num,
+            fee_code,
+            fee_name,
+            unit_price,
+            order_fee,
+            fee_period,
+            validity,
+            order_note
+        ) VALUES (
+            #{tOrder.orderId,jdbcType=INTEGER},
+            #{tOrder.enCode,jdbcType=VARCHAR},
+            #{tOrder.orderTime,jdbcType=TIMESTAMP},
+            #{tOrder.proCode,jdbcType=VARCHAR},
+            #{tOrder.orderNum,jdbcType=VARCHAR},
+            #{tOrder.feeCode,jdbcType=VARCHAR},
+            #{tOrder.feeName,jdbcType=VARCHAR},
+            #{tOrder.unitPrice,jdbcType=VARCHAR},
+            #{tOrder.orderFee,jdbcType=VARCHAR},
+            #{tOrder.feePeriod,jdbcType=VARCHAR},
+            #{tOrder.validity,jdbcType=VARCHAR},
+            #{tOrder.orderNote,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="tOrder.orderId">
+        INSERT INTO t_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tOrder.orderId!=null"> order_id,</if>
+            <if test="tOrder.enCode!=null"> en_code,</if>
+            <if test="tOrder.orderTime!=null"> order_time,</if>
+            <if test="tOrder.proCode!=null"> pro_code,</if>
+            <if test="tOrder.orderNum!=null"> order_num,</if>
+            <if test="tOrder.feeCode!=null"> fee_code,</if>
+            <if test="tOrder.feeName!=null"> fee_name,</if>
+            <if test="tOrder.unitPrice!=null"> unit_price,</if>
+            <if test="tOrder.orderFee!=null"> order_fee,</if>
+            <if test="tOrder.feePeriod!=null"> fee_period,</if>
+            <if test="tOrder.validity!=null"> validity,</if>
+            <if test="tOrder.orderNote!=null"> order_note,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tOrder.orderId!=null">#{tOrder.orderId,jdbcType=INTEGER},
+            </if>
+            <if test="tOrder.enCode!=null">#{tOrder.enCode,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.orderTime!=null">#{tOrder.orderTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tOrder.proCode!=null">#{tOrder.proCode,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.orderNum!=null">#{tOrder.orderNum,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.feeCode!=null">#{tOrder.feeCode,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.feeName!=null">#{tOrder.feeName,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.unitPrice!=null">#{tOrder.unitPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.orderFee!=null">#{tOrder.orderFee,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.feePeriod!=null">#{tOrder.feePeriod,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.validity!=null">#{tOrder.validity,jdbcType=VARCHAR},
+            </if>
+            <if test="tOrder.orderNote!=null">#{tOrder.orderNote,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO t_order (
+            order_id,
+            en_code,
+            order_time,
+            pro_code,
+            order_num,
+            fee_code,
+            fee_name,
+            unit_price,
+            order_fee,
+            fee_period,
+            validity,
+            order_note
+        )VALUES
+        <foreach collection="tOrders" item="tOrder" index="index" separator=",">
+            (
+            #{tOrder.orderId,jdbcType=INTEGER},
+            #{tOrder.enCode,jdbcType=VARCHAR},
+            #{tOrder.orderTime,jdbcType=TIMESTAMP},
+            #{tOrder.proCode,jdbcType=VARCHAR},
+            #{tOrder.orderNum,jdbcType=VARCHAR},
+            #{tOrder.feeCode,jdbcType=VARCHAR},
+            #{tOrder.feeName,jdbcType=VARCHAR},
+            #{tOrder.unitPrice,jdbcType=VARCHAR},
+            #{tOrder.orderFee,jdbcType=VARCHAR},
+            #{tOrder.feePeriod,jdbcType=VARCHAR},
+            #{tOrder.validity,jdbcType=VARCHAR},
+            #{tOrder.orderNote,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE t_order
+        <set>
+            <if test="tOrder.enCode != null"> en_code= #{tOrder.enCode,jdbcType=VARCHAR},</if>
+            <if test="tOrder.orderTime != null"> order_time= #{tOrder.orderTime,jdbcType=TIMESTAMP},</if>
+            <if test="tOrder.proCode != null"> pro_code= #{tOrder.proCode,jdbcType=VARCHAR},</if>
+            <if test="tOrder.orderNum != null"> order_num= #{tOrder.orderNum,jdbcType=VARCHAR},</if>
+            <if test="tOrder.feeCode != null"> fee_code= #{tOrder.feeCode,jdbcType=VARCHAR},</if>
+            <if test="tOrder.feeName != null"> fee_name= #{tOrder.feeName,jdbcType=VARCHAR},</if>
+            <if test="tOrder.unitPrice != null"> unit_price= #{tOrder.unitPrice,jdbcType=VARCHAR},</if>
+            <if test="tOrder.orderFee != null"> order_fee= #{tOrder.orderFee,jdbcType=VARCHAR},</if>
+            <if test="tOrder.feePeriod != null"> fee_period= #{tOrder.feePeriod,jdbcType=VARCHAR},</if>
+            <if test="tOrder.validity != null"> validity= #{tOrder.validity,jdbcType=VARCHAR},</if>
+            <if test="tOrder.orderNote != null"> order_note= #{tOrder.orderNote,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE order_id = #{tOrder.orderId,jdbcType=INTEGER}
+    </update>
+</mapper>
+

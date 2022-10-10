@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: @env@
+    jackson:
+      default-property-inclusion: non_null
+      time-zone: GMT+8
+  application:
+    name: wocloudDemoApplication
+
+server:
+    port: 30886
+    servlet:
+      context-path: /
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+logging:
+  level:
+    root: info
+    org.springframework.boot: info
+    org.apache.ibatis: info
+  file:
+    path: /var/logs/demo/wocloud-demo.log
